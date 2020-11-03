@@ -3,7 +3,8 @@ var imgLast = $('.images > .last')
 var navFirst = $('.nav > .first')
 var navLast = $('.nav > .last')
 
-
+var navList = $('.nav > i')
+var imgList = $('.images > img')
 
 function slideNext(){
   var imgActive = $('.images > .active')
@@ -63,20 +64,27 @@ $('.nav > i').click(function () {
   var navActive = $('.nav > i.active')
 
   var index = $(this).index();
-  console.log(index, typeof index)
+  
   imgActive.removeClass('active')
   navActive.removeClass('active')
-  if (index == 0){
-    imgFirst.addClass('active')
-    navFirst.addClass('active')
-  } else if (index == 3){
-    imgLast.addClass('active')
-    navLast.addClass('active')
-  } else if (index == 1){
-    imgFirst.next().addClass('active')
-    navFirst.next().addClass('active')
-  } else if (index == 2){
-    imgLast.prev().addClass('active')
-    navLast.prev().addClass('active')
-  }
+
+  switch (index) {
+  case 0:
+    imgList.eq(0).addClass( "active" )
+    navList.eq(0).addClass( "active" )
+    break
+  case 1:
+    imgList.eq(1).addClass( "active" )
+    navList.eq(1).addClass( "active" )
+    break
+  case 2:
+    imgList.eq(2).addClass( "active" )
+    navList.eq(2).addClass( "active" )
+    break
+  case 3:
+    imgList.eq(3).addClass( "active" )
+    navList.eq(3).addClass( "active" )
+    break
+}
+
 });
