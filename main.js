@@ -39,6 +39,7 @@ function slidePrev(){
 
 }
 
+
 $('.next').click(function () {
   slideNext()
 });
@@ -55,4 +56,27 @@ $(document).keydown(function( event ) {
  if (event.which == 39)
     slideNext()
     event.preventDefault()
+});
+
+$('.nav > i').click(function () {
+  var imgActive = $('.images > .active')
+  var navActive = $('.nav > i.active')
+
+  var index = $(this).index();
+  console.log(index, typeof index)
+  imgActive.removeClass('active')
+  navActive.removeClass('active')
+  if (index == 0){
+    imgFirst.addClass('active')
+    navFirst.addClass('active')
+  } else if (index == 3){
+    imgLast.addClass('active')
+    navLast.addClass('active')
+  } else if (index == 1){
+    imgFirst.next().addClass('active')
+    navFirst.next().addClass('active')
+  } else if (index == 2){
+    imgLast.prev().addClass('active')
+    navLast.prev().addClass('active')
+  }
 });
