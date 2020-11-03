@@ -1,9 +1,11 @@
 var imgFirst = $('.images > .first')
 var imgLast = $('.images > .last')
 var navFirst = $('.nav > .first')
-var navlast = $('.nav > .last')
+var navLast = $('.nav > .last')
 
-$('.next').click(function () {
+
+
+function slideNext(){
   var imgActive = $('.images > .active')
   var navActive = $('.nav > i.active')
 
@@ -17,9 +19,10 @@ $('.next').click(function () {
     imgActive.next().addClass('active')
     navActive.next().addClass('active')
   }
-});
 
-$('.prev').click(function () {
+}
+
+function slidePrev(){
   var imgActive = $('.images > .active')
   var navActive = $('.nav > i.active')
 
@@ -33,4 +36,23 @@ $('.prev').click(function () {
     imgActive.prev().addClass('active')
     navActive.prev().addClass('active')
   }
+
+}
+
+$('.next').click(function () {
+  slideNext()
+});
+
+$('.prev').click(function () {
+  slidePrev()
+});
+
+$(document).keydown(function( event ) {
+  if ( event.which == 37 ) {
+    slidePrev()
+    event.preventDefault()
+ }
+ if (event.which == 39)
+    slideNext()
+    event.preventDefault()
 });
