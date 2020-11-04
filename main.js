@@ -2,7 +2,6 @@ var imgFirst = $('.images > .first')
 var imgLast = $('.images > .last')
 var navFirst = $('.nav > .first')
 var navLast = $('.nav > .last')
-
 var navList = $('.nav > i')
 var imgList = $('.images > img')
 
@@ -20,7 +19,6 @@ function slideNext(){
     imgActive.next().addClass('active')
     navActive.next().addClass('active')
   }
-
 }
 
 function slidePrev(){
@@ -40,15 +38,14 @@ function slidePrev(){
 
 }
 
+//click next
+$('.next').click(slideNext)
 
-$('.next').click(function () {
-  slideNext()
-});
+//click prev
+$('.prev').click(slidePrev)
 
-$('.prev').click(function () {
-  slidePrev()
-});
 
+// gestione pressione tasti destra e sinistra della tastiera
 $(document).keydown(function( event ) {
   if ( event.which == 37 ) {
     slidePrev()
@@ -59,6 +56,8 @@ $(document).keydown(function( event ) {
     event.preventDefault()
 });
 
+
+// gestione click sui pallini dello slider per il jump
 $('.nav > i').click(function () {
 
   var imgActive = $('.images > .active')
@@ -71,6 +70,6 @@ $('.nav > i').click(function () {
 
   imgList.eq(index).addClass( "active" )
   navList.eq(index).addClass( "active" )
-  
+
 
 });
