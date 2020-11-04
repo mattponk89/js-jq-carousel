@@ -60,31 +60,17 @@ $(document).keydown(function( event ) {
 });
 
 $('.nav > i').click(function () {
+
   var imgActive = $('.images > .active')
   var navActive = $('.nav > i.active')
 
-  var index = $(this).index();
-  
   imgActive.removeClass('active')
   navActive.removeClass('active')
 
-  switch (index) {
-  case 0:
-    imgList.eq(0).addClass( "active" )
-    navList.eq(0).addClass( "active" )
-    break
-  case 1:
-    imgList.eq(1).addClass( "active" )
-    navList.eq(1).addClass( "active" )
-    break
-  case 2:
-    imgList.eq(2).addClass( "active" )
-    navList.eq(2).addClass( "active" )
-    break
-  case 3:
-    imgList.eq(3).addClass( "active" )
-    navList.eq(3).addClass( "active" )
-    break
-}
+  var index = $(this).index();
+
+  imgList.eq(index).addClass( "active" )
+  navList.eq(index).addClass( "active" )
+  
 
 });
